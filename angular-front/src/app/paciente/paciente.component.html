@@ -1,0 +1,76 @@
+
+<div class="container">
+
+<div class="card md-3">
+    
+    <div class="card-header">Listado de Pacientes</div>
+    <div class="card-body">
+      
+      <div class="my-2 text-left" id="btn">
+          <button class="btn btn-rounded btn-primary" type="button"  [routerLink]="['/pacientes/form']">Crear Paciente</button>
+      </div>
+    <div id="search">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+      <table class="table table-bordered" style="width:1500px;">
+        <thead style="text-align:center;">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>NSS</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th style="width:auto;">Domicilio</th>
+                <th>Telefono</th>
+               
+                <th style="background:#ADD8E6;color: rgb(39, 110, 112);width:170px;">            
+                    Funciones
+                   
+                </th> 
+               
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let paciente of pacientes">
+                <td>{{paciente.id}}</td>
+                <td>{{paciente.nombre}}</td>
+                <td>{{paciente.nss}}</td>
+                <td>{{paciente.edad}}</td>
+                <td>{{paciente.sexo}}</td>
+                <td>{{paciente.domicilio}}</td>
+                <td>{{paciente.telefono}}</td>
+               
+                <td style="background:#F8F8FF;">
+                    <button type="button" name="editar" [routerLink]="['/pacientes/form', paciente.id]" class="btn btn-default" style="background:#F8F8FF;">
+                    
+                        <span style="font-size:1.5em; color:#369681;">
+                            <i class="fas fa-edit"></i>
+                          </span>
+                    </button>
+                
+                    <button type="button" name="eliminar" (click)='delete(paciente)'  class="btn btn-default" style="background:#F8F8FF;">
+                        <span style="font-size:1.5em; color:red;">
+                            <i class="fa fa-trash"></i>
+                          </span>
+                    </button>
+               
+                    <button type="button" class="btn btn-default" aria-label="Left Align" style="background:#F8F8FF;" [routerLink]="['/pacientes/expediente']" >
+                        <span style="font-size:1.5em; color:rgb(127, 164, 245);">
+                            <i class="fas fa-address-book"></i>
+                          </span>
+                      </button>
+                </td>
+              
+                
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+ 
+
+</div>
